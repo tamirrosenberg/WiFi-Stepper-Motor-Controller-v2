@@ -3,7 +3,7 @@ Control a Stepper Motor remotely using WiFI (ESP8266/DRV8825)
 
 ## NOTE: In this project, you will find a new WiFi Stepper Motor Controller App for Magnetic Loop Antenna, that is replacing the old Blynk App!!! (as Blynk upgraded to v2 and removed v1 from the AppStore and the PlayStore). This project is replacing the old project that is now DEPRECATED: https://github.com/tamirrosenberg/WiFi-Stepper-Motor-Controller/edit/main/README.md
 
-## Please help and support this project and the YoutTube channel with Pateron: https://www.patreon.com/user?u=76984995
+## Please help and support this project and the YoutTube channel with Pateron: https://patreon.com/rehamradio
 ## Thank You!
 
 About the project
@@ -78,6 +78,6 @@ YouTube Channel Name: re: Ham Radio
 YouTube Channel link: https://www.youtube.com/@reHamRadio
 
 And again, please consider to help and support this project and the YouTube channel with Pateron:  
-https://www.patreon.com/user?u=76984995
+https://patreon.com/rehamradio
 
 ## Thank You!
