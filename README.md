@@ -55,7 +55,7 @@ Please go to each of these links, and download the files to your computer by usi
 3. https://github.com/me-no-dev/ESPAsyncTCP
 4. https://github.com/me-no-dev/ESPAsyncWebServer
 
-Once you have all these files locally:
+Once you have all these files locally, go back to the Arduino IDE:
 1. Go to "Sketch" --> "Include Library" --> "Add .ZIP Library..."
 2. Add each of the files above, one by one
 3. I told you it's easy ;)
@@ -77,7 +77,7 @@ Design: Tamir Rosenberg, N6JJ
 YouTube Channel Name: re: Ham Radio  
 YouTube Channel link: https://www.youtube.com/@reHamRadio
 
-And again, please consider to help and support this project and the YoutTube channel with Pateron:  
+And again, please consider to help and support this project and the YouTube channel with Pateron:  
 https://www.patreon.com/user?u=76984995
 
 ## Thank You!
