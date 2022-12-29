@@ -69,7 +69,8 @@ You just finished to installed the app and it's ready for use! YAY!!!
 
 License
 -------
-Are you allowed to use this code anywhere? Or change the code? - Yes! You are free to do that! Enjoy!
+Are you allowed to use this code anywhere? Or change the code?
+Yes! You are free to do that as long that it's for YOUR OWN PERSONAL USE (NOT FOR SELLING IT)!
 Please feel free to change that to your own project use case.
 
 
