@@ -1,7 +1,7 @@
 # WiFi-Stepper-Motor-Controller-v2
 Control a Stepper Motor remotely using WiFI (ESP8266/DRV8825)
 
-## NOTE: In this project, you will find a new WiFi Stepper Motor Controller App for Magnetic Loop Antenna, that is replacing the old Blynk App!!! (as Blynk upgraded to v2 and removed v1 from the AppStore and the PlayStore). This project is replacing the old project that is now DEPRECATED: https://github.com/tamirrosenberg/WiFi-Stepper-Motor-Controller/edit/main/README.md
+### NOTE: In this project, you will find a new WiFi Stepper Motor Controller App for Magnetic Loop Antenna, that is replacing the old Blynk App (as Blynk upgraded to v2 and removed v1 from the AppStore and the PlayStore). This project is replacing the old project that is now DEPRECATED: https://github.com/tamirrosenberg/WiFi-Stepper-Motor-Controller/edit/main/README.md
 
 ## Please help and support this project and the YoutTube channel with Patreon: https://patreon.com/rehamradio
 ## Thank You!
@@ -14,11 +14,9 @@ And it's working great! :)
 
 For more details, please visit the re:Ham Radio website: https://rehamradio.com/  
 Visit my YouTube channel to see this project in action:  
-https://www.youtube.com/@reHamRadio - The YouTube Channel  
-https://youtu.be/9yk-2Kybxgk - New WiFi Stepper Motor Controller App for Magnetic Loop Antenna (Blynk replacement!)  
+https://youtu.be/9yk-2Kybxgk - New WiFi Stepper Motor Controller App for Magnetic Loop Antenna (Blynk replacement)  
 https://youtu.be/Orhog4gqOqk - Build a Magnetic Loop Antenna with Remote Wireless Tuning - Practical Guidance  
 https://youtu.be/6eGOkw7WbA4 - The original project with the Blynk App - DEPRECATED!!!
-
 
 This project is based on:
 -------------------------
@@ -26,13 +24,12 @@ This project is based on:
 * DRV8255 Stepper Motor Driver
 * Bipolar stepper motor (Nema 17)
   
-  
 DRV8825 - Motor Driver
 ----------------------
 The DRV8825 is a smart motor driver that can be used with normal steps and even with micro-steps, and that can be controlled by
 the driver's pins M0, M1, M2. In my case I wanted to use the 1/32 micro-steps, and these are the speeds that you will see in the code.
 More details about this driver can be found here: https://www.pololu.com/product/2133.  
-NOTE: Please follow the directions in the following video on how to set the correct Voltage/Current on the motor driver before using it:
+NOTE: Please follow the directions in the following video on how to set the correct Voltage/Current on the motor driver BEFORE using it:
 https://www.youtube.com/watch?v=89BHS9hfSUk - Setting the Current Limit on Pololu Stepper Motor Driver Carriers
 
 Arduino IDE
@@ -66,19 +63,14 @@ Now you are ready to install the code into the esp8266 micro-controller:
 
 You just finished to installed the app and it's ready for use! YAY!!!
 
-
 License
 -------
-Are you allowed to use this code anywhere? Or change the code?
-Yes! You are free to do that as long that it's for YOUR OWN PERSONAL USE (NOT FOR SELLING IT)!
-Please feel free to change that to your own project use case.
+Are you allowed to use this code anywhere? Or change the code?   
+Yes, as long that it's for YOUR OWN PERSONAL USE (NOT FOR SELLING IT)!
 
-
-Design: Tamir Rosenberg, N6JJ  
-YouTube Channel Name: re: Ham Radio  
-YouTube Channel link: https://www.youtube.com/@reHamRadio
-
-And again, please consider to help and support this project and the YouTube channel with Patreon:  
-https://patreon.com/rehamradio
+Design: Tamir Rosenberg, N6JJ   
+YouTube Channel: https://www.youtube.com/@reHamRadio   
+Website: re:Ham Radio website: https://rehamradio.com/   
+Please help and support this channel with Patreon: https://patreon.com/rehamradio   
 
 ## Thank You!
