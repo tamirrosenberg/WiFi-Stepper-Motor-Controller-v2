@@ -1,3 +1,31 @@
+/*************************************************************************************************************************************
+Project: Tuning the Magnetic loop capacitor remotely using Wifi
+Details: This project is based on the ESP8266 Micro Controller, DRV8255 stepper motor driver and bipolar stepper motor.
+I built a Magnetic Loop Antenna, and my idea was to control the tuning capacitor remotely, using Wifi.
+
+DRV8825 - https://www.pololu.com/product/2133
+---------------------------------------------
+The DRV8825 is a smart motor driver that can be used with normal steps and even with micro-steps, and that can be controlled by
+the driver's pins M0, M1, M2. In my case I wanted to use the 1/32 micro-steps, and these are the speeds that you will see in the code.
+NOTE: Please follow the directions in the following video on how to set the correct Voltage/Current on the motor driver BEFORE using it:
+https://www.youtube.com/watch?v=89BHS9hfSUk - Setting the Current Limit on Pololu Stepper Motor Driver Carriers
+
+Arduino IDE - https://www.arduino.cc/en/software
+------------------------------------------------
+When you are using the Arduino IDE, you will probalby, need to install some libraries.
+Please follow the procedures in the README file on how to do that: https://github.com/tamirrosenberg/WiFi-Stepper-Motor-Controller-v2
+
+License
+-------
+Are you allowed to use this code anywhere? Or change the code? 
+Yes, as long that it's for YOUR OWN PERSONAL USE (NOT FOR SELLING IT)!
+
+Design: Tamir Rosenberg, N6JJ
+YouTube Channel: https://www.youtube.com/@reHamRadio
+Website: re:Ham Radio website: https://rehamradio.com/
+Please help and support this channel with Patreon: https://patreon.com/rehamradio
+**************************************************************************************************************************************/
+
 #include <ESP8266WiFi.h> //https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFi.h
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 #include <DoubleResetDetect.h> https://github.com/jenscski/DoubleResetDetect
