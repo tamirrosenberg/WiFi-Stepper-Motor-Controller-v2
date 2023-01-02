@@ -26,12 +26,12 @@ Website: re:Ham Radio website: https://rehamradio.com/
 Please help and support this channel with Patreon: https://patreon.com/rehamradio
 **************************************************************************************************************************************/
 
-#include <ESP8266WiFi.h> //https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFi.h
+#include <ESP8266WiFi.h> // https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFi.h
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
-#include <DoubleResetDetect.h> https://github.com/jenscski/DoubleResetDetect
-#include <ESPAsyncTCP.h> //https://github.com/me-no-dev/ESPAsyncTCP
+#include <DoubleResetDetect.h> // https://github.com/jenscski/DoubleResetDetect
+#include <ESPAsyncTCP.h> // https://github.com/me-no-dev/ESPAsyncTCP
 #define WEBSERVER_H
-#include <ESPAsyncWebServer.h> //https://github.com/me-no-dev/ESPAsyncWebServer
+#include <ESPAsyncWebServer.h> // https://github.com/me-no-dev/ESPAsyncWebServer
 
 //Constants
 #define LED D4
