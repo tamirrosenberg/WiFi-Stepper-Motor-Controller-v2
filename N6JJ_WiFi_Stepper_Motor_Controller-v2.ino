@@ -153,7 +153,7 @@ const char index_html[] PROGMEM = R"rawliteral(
         <button class="button" onmousedown="toggleCheckbox('rightOn');" ontouchstart="toggleCheckbox('rightOn');"
             onmouseup="toggleCheckbox('rightOff');" ontouchend="toggleCheckbox('rightOff');">>>>></button>
         <br><br><hr>
-        <font size="1"><center>Created by N6JJ - Community Version (v0.3-beta) 2022 </center></font>
+        <font size="1"><center>Created by N6JJ - Community Version (v0.3-beta) 2022</center></font>
         <font size="1"><center><a href='https://www.youtube.com/c/reHamRadio' target='_blank'>re:HamRadio on YouTube</a></center></font>
         <font size="1"><center><a href='https://rehamradio.com' target='_blank'>re:HamRadio Website</a></center></font>
         <font size="1"><center><a href='https://github.com/tamirrosenberg/WiFi-Stepper-Motor-Controller-v2' target='_blank'>The project on GitHub</a></center></font>
@@ -289,7 +289,7 @@ void setup() {
     String inputMessage;
     String statusValue = "Idle";
     if(tuneStatus){
-      statusValue = "Tunning...";
+      statusValue = "Tuning...";
     }
     request->send(200, "text/plain", statusValue);
   });
@@ -308,12 +308,10 @@ void loop() {
     digitalWrite(LED, LOW);                           // turn LED indicator OFF
     digitalWrite(enablePin, LOW);
     Serial.println("slider: string-->" + sliderValue);
-    Serial.println("Tunning...");
+    Serial.println("Tuning...");
     digitalWrite(stepPin, HIGH);                           // perform a step
-    //digitalWrite(LED, LOW);                              // turn LED indicator OFF
     delayMicroseconds(sliderRange-sliderValue.toInt());    // wait for the steps operation
     digitalWrite(stepPin, LOW);                            // stop the step 
-    //digitalWrite(LED, HIGH);                             // turn LED indicator ON
     delayMicroseconds(sliderRange-sliderValue.toInt());    // wait between steps
   }
   else {
