@@ -32,6 +32,9 @@ Please help and support this channel with Patreon: https://patreon.com/rehamradi
 #include <ESPAsyncTCP.h> // https://github.com/me-no-dev/ESPAsyncTCP
 #define WEBSERVER_H
 #include <ESPAsyncWebServer.h> // https://github.com/me-no-dev/ESPAsyncWebServer
+#include <ESP8266mDNS.h>
+#include <Updater.h>
+#define U_PART U_FS
 
 //Constants
 #define LED D4
@@ -49,6 +52,7 @@ DoubleResetDetect drd(DRD_TIMEOUT, DRD_ADDRESS);
 //Parameters
 String AP_ID = "reHamRadio-AP";
 String AP_PW = "rehamradio";
+const char* host = "rehamradio";
 
 //Variables
 const int enablePin = 0;                            // ESP8266 digital pin 0
@@ -56,7 +60,7 @@ const int stepPin = 4;                              // ESP8266 digital pin 4
 const int dirPin = 5;                               // ESP8266 digital pin 5
 bool tuneStatus = false;
 String sliderValue = "2000";
-int sliderRange = 4000;
+int sliderRange = 4400;
 const char* PARAM_INPUT = "value";
 
 // HTML web page
@@ -153,10 +157,11 @@ const char index_html[] PROGMEM = R"rawliteral(
         <button class="button" onmousedown="toggleCheckbox('rightOn');" ontouchstart="toggleCheckbox('rightOn');"
             onmouseup="toggleCheckbox('rightOff');" ontouchend="toggleCheckbox('rightOff');">>>>></button>
         <br><br><hr>
-        <font size="1"><center>Created by N6JJ - Community Version (v0.3-beta) 2022</center></font>
+        <font size="1"><center>Created by N6JJ - Community Version (v0.3.1-beta) 2023</center></font>
         <font size="1"><center><a href='https://www.youtube.com/c/reHamRadio' target='_blank'>re:HamRadio on YouTube</a></center></font>
         <font size="1"><center><a href='https://rehamradio.com' target='_blank'>re:HamRadio Website</a></center></font>
         <font size="1"><center><a href='https://github.com/tamirrosenberg/WiFi-Stepper-Motor-Controller-v2' target='_blank'>The project on GitHub</a></center></font>
+        <font size="1"><center><a href='http://rehamradio.local/update'>Firmware Update</a></center></font>
         <script>
             function toggleCheckbox(x) {
                 var xhr = new XMLHttpRequest();
@@ -189,6 +194,63 @@ const char index_html[] PROGMEM = R"rawliteral(
 </html>)rawliteral";
 
 AsyncWebServer server(80);
+size_t content_len;
+
+void handleRoot(AsyncWebServerRequest *request) {
+  request->redirect("/update");
+}
+
+void handleUpdate(AsyncWebServerRequest *request) {
+  const char* html = "<body style='background-color:#77a6f7; color:white; align=left; font-family: Arial;'><h3>Firmware Update:</h3><form method='POST' action='/fwUpdate' enctype='multipart/form-data'><input type='file' name='update'><input type='submit' value='Update'></form><font size='2'><a href='http://rehamradio.local'>Back</a></font></body><hr><font size='1'><center>Created by N6JJ - Community Version (v0.3.1-beta) 2023</center></font>";
+  request->send(200, "text/html", html);
+}
+
+void handleFWUpdate(AsyncWebServerRequest *request, const String& filename, size_t index, uint8_t *data, size_t len, bool final) {
+  if (!index){
+    Serial.println("Updating firmware...");
+    content_len = request->contentLength();
+    // if filename includes spiffs, update the spiffs partition
+    int cmd = (filename.indexOf("spiffs") > -1) ? U_PART : U_FLASH;
+
+    Update.runAsync(true);
+    if (!Update.begin(content_len, cmd)) {
+      Update.printError(Serial);
+    }
+    request->send(200, "text/html", "<head><meta http-equiv='refresh' content='10;URL=/'/></head><body style='background-color:#77a6f7; color:white; align=left; font-family: Arial;'>Uploaded! Rebooting, please wait...</body>");
+  }
+
+  if (Update.write(data, len) != len) {
+    Update.printError(Serial);
+    Serial.printf("Progress: %d%%\n", (Update.progress()*100)/Update.size());
+  }
+
+  if (final) {
+    if (!Update.end(true)){
+      Update.printError(Serial);
+    } else {
+      Serial.println("Firmware updated!");
+      Serial.flush();
+      ESP.restart();
+    }
+  }
+}
+
+void printProgress(size_t prg, size_t sz) {
+  Serial.printf("Progress: %d%%\n", (prg*100)/content_len);
+}
+
+boolean fwPage() {
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {request->redirect("/update");});
+  server.on("/update", HTTP_GET, [](AsyncWebServerRequest *request){handleUpdate(request);});
+  server.on("/fwUpdate", HTTP_POST,
+    [](AsyncWebServerRequest *request) {},
+    [](AsyncWebServerRequest *request, const String& filename, size_t index, uint8_t *data,
+                  size_t len, bool final) {handleFWUpdate(request, filename, index, data, len, final);}
+  );
+  server.onNotFound([](AsyncWebServerRequest *request){request->send(404);});
+  server.begin();
+  return fwPage;
+}
 
 void setup() {
   //Init Serial USB
@@ -294,8 +356,12 @@ void setup() {
     request->send(200, "text/plain", statusValue);
   });
   
+  MDNS.begin(host);
   server.onNotFound(notFound);
   server.begin();
+  fwPage();
+  MDNS.addService("http", "tcp", 80);
+  Serial.printf("The application is ready at http://%s.local\n", host);
 }
 
 void notFound(AsyncWebServerRequest *request) {
@@ -307,8 +373,6 @@ void loop() {
   if (tuneStatus) {
     digitalWrite(LED, LOW);                           // turn LED indicator OFF
     digitalWrite(enablePin, LOW);
-    Serial.println("slider: string-->" + sliderValue);
-    Serial.println("Tuning...");
     digitalWrite(stepPin, HIGH);                           // perform a step
     delayMicroseconds(sliderRange-sliderValue.toInt());    // wait for the steps operation
     digitalWrite(stepPin, LOW);                            // stop the step 
@@ -318,4 +382,5 @@ void loop() {
     digitalWrite(LED, HIGH);
     digitalWrite(enablePin, HIGH);
   }
+  MDNS.update();
 }
