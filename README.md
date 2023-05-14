@@ -44,7 +44,7 @@ From vesrion `0.3.1-beta`, I introduced an easy and fast way to install the appl
 
 ### If you are using the application from version `0.3.1-beta` or newer
 1. From the "Firmware" folder in this repository, download the latest firmware version
-2. From the "Settings" tab in the application, choose "Open the Firmware Update Page"
+2. From the "Settings" tab in the application, choose Firmware "Update"
 3. Use the "Firmware update" button to choose the Firmware file that you just downloaded and click "Update"
 
 
