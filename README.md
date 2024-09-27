@@ -35,7 +35,7 @@ https://www.youtube.com/watch?v=89BHS9hfSUk - Setting the Current Limit on Polol
 ## How to install the appliaction "the easy way"
 From vesrion `0.3.1-beta`, I introduced an easy and fast way to install the application without the need of the Arduino IDE:
 ### If you are installing the application for the first time (or using version `0.3-beta` or older)
-1. First, make sure that your Arduino IDE is installed and configured with the ESP board, based on the guidenace [here](#arduino-ide)
+1. First, make sure that your Arduino IDE is installed and configured with the ESP board, based on the guidenace [here](#arduino-ide) (No need to install the Libraries, you can skip that part)
 2. From the "Firmware" folder in this repository, download the latest firmware version
 3. In Arduino IDE, load the following example code from the menu: File --> Examples --> ESP8266HTTPUpdaterServer --> WebUpdater
 4. In lines 12 & 13, replace "your-ssid" and "your-password" with your home access point Name and Password
