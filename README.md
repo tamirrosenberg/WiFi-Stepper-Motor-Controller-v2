@@ -35,12 +35,13 @@ https://www.youtube.com/watch?v=89BHS9hfSUk - Setting the Current Limit on Polol
 ## How to install the appliaction "the easy way"
 From vesrion `0.3.1-beta`, I introduced an easy and fast way to install the application without the need of the Arduino IDE:
 ### If you are installing the application for the first time (or using version `0.3-beta` or older)
-1. From the "Firmware" folder in this repository, download the latest firmware version
-2. In Arduino IDE, load the following example code from the menu: File --> Examples --> ESP8266HTTPUpdaterServer --> WebUpdater
-3. In lines 12 & 13, replace "your-ssid" and "your-password" with your home access point Name and Password
-4. Upload to the ESP
-5. The ESP will reboot and you can access it via "http://esp8266-webupdate.local/update" (you can see this line in the serial monitor of the Arduino IDE)
-6. Use the "Firmware update" button to choose the Firmware file that you just downloaded and click "Update"
+1. First, make sure that your Arduino IDE is installed and configured with the ESP board, based on the guidenace [here](#arduino-ide) (No need to install the Libraries, you can skip that part)
+2. From the "Firmware" folder in this repository, download the latest firmware version
+3. In Arduino IDE, load the following example code from the menu: File --> Examples --> ESP8266HTTPUpdaterServer --> WebUpdater
+4. In lines 12 & 13, replace "your-ssid" and "your-password" with your home access point Name and Password
+5. Upload to the ESP
+6. The ESP will reboot and you can access it via "http://esp8266-webupdate.local/update" (you can see this line in the serial monitor of the Arduino IDE)
+7. Use the "Firmware update" button to choose the Firmware file that you just downloaded and click "Update"
 
 ### If you are using the application from version `0.3.1-beta` or newer
 1. From the "Firmware" folder in this repository, download the latest firmware version
